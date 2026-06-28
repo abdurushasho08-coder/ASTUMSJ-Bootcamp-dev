@@ -1,0 +1,159 @@
+
+
+
+
+@media(max-width:1150px){
+    h1{
+        font-size: 30px;
+    }
+}
+
+body{
+    background-image: url(./images/bg-pattern-top-desktop.svg),url(./images/bg-pattern-bottom-desktop.svg);
+    background-repeat: no-repeat;
+    background-position: 0vw 0vh,30vw 10vh;  
+    background-size: 1150px;
+    background-repeat: no-repeat;
+    height: 90px;
+    
+}
+.text{
+    color: hsl(300, 43%, 22%);
+    font-weight: 700;
+    font-size: 50px;
+} 
+.pargragh{
+     color: hsl(300, 24%, 96%);
+     font-weight: 300;
+     
+}
+    
+
+
+
+.container{
+    max-width: 1140px;
+    margin: auto;
+    font-family: "League Spartan", sans-serif;
+    Font-size: 15px;
+    font-weight: 400,500,700;
+    color: hsl(300, 43%, 22%);
+    margin-top: 4rem;
+    height: 90px
+}
+
+
+
+.star{
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+
+.right{
+    width: 450px;
+    
+}
+
+
+.rating  {
+    display:flex ;
+    background-color: hsla(300, 2%, 47%, 0.699);
+    border-radius: 5px;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 8px;
+    gap: 15px;    
+}
+
+#star-s{
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+#star-p{
+    margin-left: 4rem;   
+}
+#star-f{
+    margin-right: 4rem;
+}
+.p{
+    color:hsl(300, 24%, 96%) ;
+}
+.q{
+    color:  hsl(333, 80%, 67%);
+}
+
+
+.top-container{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.buttom-container{
+    display: flex;
+    margin-top: 5rem;
+}
+.card{
+    display: flex;
+    border-radius: 5px;
+    background-color: hsl(300, 43%, 22%);
+    margin-left: 1rem;
+    flex-direction: column;
+    width: 350px;
+    height: 200px;
+    
+}
+.card-image{
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+   
+}
+.pargragh{
+     color: hsl(300, 24%, 96%);
+     font-weight: 300;
+     display: flex;
+     align-items: center;
+     text-align: center;
+     font-size: 15px;
+     padding-left: 1rem;
+     padding-right: 1rem;
+     padding-bottom: 10rem;
+     
+    
+}
+.image{
+    display: flex;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    flex-direction: column;
+    padding: 1rem 1rem;
+}
+#card-box{
+    margin-top: 3rem;
+}
+
+ 
+#card-box1{
+    margin-top: 1.5rem;
+}
+   
+.card-text{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-content: center;
+    padding-left: 1rem;
+    
+
+
+}
+
+    
+
+    
+
+
+
