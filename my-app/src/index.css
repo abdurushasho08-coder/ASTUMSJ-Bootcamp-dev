@@ -1,0 +1,13 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+.debora{
+    margin: 200px 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 5px solid;
+    background-color: hsl(300, 50%, 976%);
+    width: 250px;
+}

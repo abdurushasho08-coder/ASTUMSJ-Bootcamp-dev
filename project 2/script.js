@@ -1,7 +1,5 @@
-
 let tasks = [];
 
-// ── Grab elements from the DOM ──
 const taskInput = document.getElementById("taskInput");
 const addBtn = document.getElementById("addBtn");
 const errorMsg = document.getElementById("errorMsg");
@@ -12,129 +10,176 @@ const allDoneMsg = document.getElementById("allDoneMsg");
 const colorCircles = document.querySelectorAll(".color-circle");
 
 function renderTasks() {
-  taskList.textContent = "";
 
+    taskList.textContent = "";
 
-  for (let i = 0; i < tasks.length; i++) {
-    const task = tasks[i];
+    for (let i = 0; i < tasks.length; i++) {
 
-    const li = document.createElement("li");
-    li.className = "task-item";
-    if (task.done) {
-      li.classList.add("done"); 
+        const task = tasks[i];
+
+        const li = document.createElement("li");
+        li.className = "task-item";
+
+        if (task.done) {
+            li.classList.add("done");
+        }
+
+        const span = document.createElement("span");
+        span.className = "task-text";
+        span.textContent = task.text;
+
+        const doneBtn = document.createElement("button");
+        doneBtn.className = "done-btn";
+
+        if (task.done) {
+            doneBtn.textContent = "Undo";
+        } else {
+            doneBtn.textContent = "Done";
+        }
+
+        doneBtn.addEventListener("click", function () {
+            toggleDone(i);
+        });
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.className = "delete-btn";
+        deleteBtn.textContent = "Delete";
+
+        deleteBtn.addEventListener("click", function () {
+            deleteTask(i);
+        });
+
+        li.appendChild(span);
+        li.appendChild(doneBtn);
+        li.appendChild(deleteBtn);
+
+        taskList.appendChild(li);
     }
 
-    const span = document.createElement("span");
-    span.className = "task-text";
-    span.textContent = task.text;
-
-    const doneBtn = document.createElement("button");
-    doneBtn.className = "done-btn";
-    doneBtn.textContent = task.done ? "Undo" : "Done";
-    doneBtn.addEventListener("click", () => toggleDone(i));
-
-    const deleteBtn = document.createElement("button");
-    deleteBtn.className = "delete-btn";
-    deleteBtn.textContent = "Delete";
-    deleteBtn.addEventListener("click", () => deleteTask(i));
-
-    li.appendChild(span);
-    li.appendChild(doneBtn);
-    li.appendChild(deleteBtn);
-    taskList.appendChild(li);
-  }
-
-  updateCounter();
+    updateCounter();
 }
-
 
 function updateCounter() {
-  const totalTasks = tasks.length;
-  const undoneTasks = tasks.filter((task) => !task.done).length; // R4
-  const doneTasks = totalTasks - undoneTasks; // B3
 
-  if (totalTasks === 0) {
-    remainingCount.textContent = "0";
-  } else if (undoneTasks === 0) {
-    
-    remainingCount.textContent = `${doneTasks} of ${totalTasks} tasks completed`;
-    remainingCount.classList.add("all-done");
-  } else {
-  
-    remainingCount.textContent = `${doneTasks} of ${totalTasks} tasks completed (${undoneTasks} remaining)`;
-    remainingCount.classList.remove("all-done");
-  }
+    const totalTasks = tasks.length;
 
+    const undoneTasks = tasks.filter(function (task) {
+        return task.done == false;
+    }).length;
 
-  if (totalTasks > 0 && undoneTasks === 0) {
-    allDoneMsg.classList.add("visible");
-  } else {
-    allDoneMsg.classList.remove("visible");
-  }
+    const doneTasks = totalTasks - undoneTasks;
+
+    if (totalTasks == 0) {
+
+        remainingCount.textContent = "0";
+        remainingCount.classList.remove("all-done");
+
+    } else if (undoneTasks == 0) {
+
+        remainingCount.textContent =
+            doneTasks + " of " + totalTasks + " tasks completed";
+
+        remainingCount.classList.add("all-done");
+
+    } else {
+
+        remainingCount.textContent =
+            doneTasks + " of " + totalTasks +
+            " tasks completed (" + undoneTasks + " remaining)";
+
+        remainingCount.classList.remove("all-done");
+
+    }
+
+    if (totalTasks > 0 && undoneTasks == 0) {
+        allDoneMsg.classList.add("visible");
+    } else {
+        allDoneMsg.classList.remove("visible");
+    }
 }
-
 
 function addTask() {
-  const value = taskInput.value.trim();
 
-  if (!value) {
-    errorMsg.textContent = "Please type a task first";
-    return;
-  }
+    const value = taskInput.value.trim();
 
+    if (value == "") {
+        errorMsg.textContent = "Please type a task first";
+        return;
+    }
 
-  const existingTexts = tasks.map((task) => task.text.toLowerCase());
-  if (existingTexts.includes(value.toLowerCase())) {
-    errorMsg.textContent = "This task already exists!";
-    return;
-  }
-  errorMsg.textContent = "";
+    const existingTexts = tasks.map(function (task) {
+        return task.text.toLowerCase();
+    });
 
-  tasks.push({ text: value, done: false });
-  taskInput.value = "";
+    if (existingTexts.includes(value.toLowerCase())) {
+        errorMsg.textContent = "This task already exists!";
+        return;
+    }
 
-  renderTasks();
+    errorMsg.textContent = "";
+
+    tasks.push({
+        text: value,
+        done: false
+    });
+
+    taskInput.value = "";
+
+    renderTasks();
 }
 
-
 function toggleDone(index) {
-  tasks[index].done = !tasks[index].done;
-  renderTasks();
+
+    tasks[index].done = !tasks[index].done;
+
+    renderTasks();
 }
 
 function deleteTask(index) {
-  tasks.splice(index, 1);
-  renderTasks();
-}
 
+    tasks.splice(index, 1);
+
+    renderTasks();
+}
 
 function clearAllTasks() {
-  tasks = [];
-  renderTasks();
-}
 
+    tasks = [];
+
+    renderTasks();
+}
 
 function handleColorClick(circle) {
-  document.body.style.backgroundColor = circle.dataset.color;
 
-  colorCircles.forEach((c) => c.classList.remove("active"));
-  circle.classList.add("active");
+    document.body.style.backgroundColor = circle.dataset.color;
+
+    colorCircles.forEach(function (c) {
+        c.classList.remove("active");
+    });
+
+    circle.classList.add("active");
 }
-
 
 addBtn.addEventListener("click", addTask);
 
+taskInput.addEventListener("keydown", function (event) {
 
-taskInput.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    addTask();
-  }
+    if (event.key == "Enter") {
+        addTask();
+    }
+
 });
 
 clearBtn.addEventListener("click", clearAllTasks);
 
-colorCircles.forEach((circle) => {
-  circle.addEventListener("click", () => handleColorClick(circle));
+colorCircles.forEach(function (circle) {
+
+    circle.addEventListener("click", function () {
+
+        handleColorClick(circle);
+
+    });
+
 });
 
 renderTasks();
