@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className="container">
-      <h1>Color Picker</h1>
+      <h1>Color palette Picker</h1>
 
       <div className="buttons">
         {colors.map((color) => (

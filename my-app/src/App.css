@@ -5,6 +5,7 @@ body {
 .container {
   text-align: center;
   margin-top: 50px;
+
 }
 
 .buttons {
@@ -18,8 +19,9 @@ body {
   cursor: pointer;
   border-radius: 5px;
 }
-.color-button active {
+.active {
   border: 1px solid rgb(231, 110, 110);
+  cursor:pointer
 }
 
 .preview-container {
