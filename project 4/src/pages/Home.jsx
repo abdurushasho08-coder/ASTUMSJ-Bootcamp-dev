@@ -1,17 +1,21 @@
 import {useState,useEffect} from 'react';
 import BlogCard from '../Components/BlogCard';
+import {  Link } from "react-router-dom";
 
 function Home() {
   const [loading, setloading]=useState(false);
   const [error,seterror]=useState(null);
   const[posts,setposts]=useState ([])
   useEffect(() =>{
+    
+
     const fechpost=async ()=>{
       setloading(true);
+      
       try{
       const response=await fetch("https://dummyjson.com/posts?limit=10");
-      const posts=(await response.json()) ;
-      setposts(posts)
+      const data=(await response.json()) ;
+      setposts(data.posts)
       }catch(error){
         seterror(error);
       }finally{
@@ -30,9 +34,11 @@ function Home() {
   return(
     <div>
       {posts.map((post)=>(<BlogCard key={post.id} post={post}/>))}
+    <div className='button'>
       <button>
-        <link to="/create"> Create New Blog</link>
+          <Link to="/create">Create New Blog</Link>
       </button>
+    </div>
     </div>
   );
 

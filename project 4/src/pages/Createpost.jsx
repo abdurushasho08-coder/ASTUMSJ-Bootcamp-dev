@@ -5,7 +5,7 @@ function CreatePost() {
   const navigate = useNavigate();
 
   function addPost(title, body) {
-    const savedPosts = JSON.parse(localStorage.getItem("Post")) || [];
+    const savedPosts = JSON.parse(localStorage.getItem("Posts")) || [];
 
     const newPost = {
       id: Date.now(),

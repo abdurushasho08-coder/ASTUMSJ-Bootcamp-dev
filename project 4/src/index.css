@@ -1,0 +1,112 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f5f5f5;
+}
+
+.container{
+    width:90%;
+    margin:auto;
+    padding:20px;
+}
+
+.button{
+    cursor:pointer;
+    padding:10px 15px;
+    border-radius: 8px;
+    background-color: rgb(101, 101, 229);
+    border-color: none;
+    width: 150px;
+    color: aliceblue;
+    margin: 0% auto;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    margin:15px 0;
+    border-radius:8px;
+}
+
+.tag{
+    display:inline-block;
+    background:#ddd;
+    padding:5px 10px;
+    margin-right:5px;
+    border-radius:5px;
+}
+
+.navbar{
+    background:#222;
+    padding:15px;
+}
+
+.navbar a{
+    color:white;
+    text-decoration:none;
+    margin-right:20px;
+}
+
+
+
+.bookmark{
+    margin-left: 10px;
+    cursor:pointer;
+    padding:10px 15px;
+    border-radius: 8px;
+    background-color: rgb(101, 101, 229);
+    border-color: none;
+    width: 150px;
+    color: aliceblue;
+
+  
+}
+.btn{
+     margin-left: 10px;
+    cursor:pointer;
+    padding:10px 15px;
+    border-radius: 8px;
+    background-color: rgb(101, 101, 229);
+    border-color: none;
+    width: 150px;
+    color: aliceblue;
+}
+.button-link{
+    margin-top: 10px;
+}
+.bookmark-container{
+    display: flex;
+    width: 500px;
+    background-color: wheat;
+}
+.button-form{
+      cursor:pointer;
+    padding:10px 15px;
+    border-radius: 8px;
+    background-color: rgb(101, 101, 229);
+    border-color: none;
+    width: 150px;
+    color: aliceblue;
+}
+.title{
+    display: flex;
+    height: auto;
+    width: 300px;
+}
+.textrea{
+    display: flex;
+    height: 200px;
+    width: 900px;
+}

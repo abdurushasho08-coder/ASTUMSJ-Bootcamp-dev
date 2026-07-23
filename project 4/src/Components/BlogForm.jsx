@@ -13,32 +13,29 @@ function BlogForm({ onSubmit }) {
       alert("please fill out both content and titile")
       return;
     }
-
-   
-
     onSubmit(title, body);
-
-   
   }
 
   return (
     <form onSubmit={handleSubmit}>
-
+      <lable> Title</lable>
       <input
+      className="title"
         type="text"
         placeholder="Enter title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
-
+        <lable>Content</lable>
       <textarea
+      className="textrea"
         rows="6"
         placeholder="Write your blog..."
         value={body}
         onChange={(e) => setBody(e.target.value)}
       />
 
-      <button type="submit">
+      <button className="button-form" type="submit">
         Add Post
       </button>
 

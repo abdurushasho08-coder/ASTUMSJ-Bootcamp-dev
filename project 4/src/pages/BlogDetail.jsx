@@ -8,7 +8,7 @@ function BlogDetail() {
 
   const [mypost, setmyPost] = useState(null);
   const [comments, setComments] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const [bookmarks, setBookmarks] = useAtom(bookmarksAtom);
 
@@ -21,7 +21,7 @@ function BlogDetail() {
       const mypostData = await mypostRes.json();
       const commentsData = await commentsRes.json();
       setmyPost(mypostData);
-      setComments(commentsData);
+      setComments(commentsData.comments);
 
       setLoading(false);
     });
@@ -29,9 +29,7 @@ function BlogDetail() {
 
   if (loading) {
     return (
-      <div className="container">
-        <h2>Loading...</h2>
-      </div>
+      <div> Loading... </div>
     );
   }
   function handleBookmark() {
@@ -57,12 +55,15 @@ function BlogDetail() {
           </span>
         ))}
       </div>
+    <div className="button-link">
+        <button className="btn">
+          <Link to="/"> back to home </Link>
+        </button>
 
-      <button>
-        <Link to="/"> back to home </Link>
-      </button>
-
-      <button onClick={handleBookmark}></button>
+        <button onClick={handleBookmark} className="bookmark">
+          Bookmark
+        </button>
+    </div>
 
       <h2>Comments</h2>
 
