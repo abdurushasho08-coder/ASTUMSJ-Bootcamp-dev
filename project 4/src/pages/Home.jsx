@@ -8,6 +8,7 @@ function Home() {
   const[posts,setposts]=useState ([])
   useEffect(() =>{
     
+     const savedPosts = JSON.parse(localStorage.getItem("Posts")) || [];
 
     const fechpost=async ()=>{
       setloading(true);
@@ -15,7 +16,7 @@ function Home() {
       try{
       const response=await fetch("https://dummyjson.com/posts?limit=10");
       const data=(await response.json()) ;
-      setposts(data.posts)
+      setposts([...savedPosts,...data.posts])
       }catch(error){
         seterror(error);
       }finally{

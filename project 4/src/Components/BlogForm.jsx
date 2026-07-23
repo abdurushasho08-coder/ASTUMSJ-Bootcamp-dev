@@ -17,7 +17,7 @@ function BlogForm({ onSubmit }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onchange={handleSubmit}>
       <lable> Title</lable>
       <input
       className="title"
