@@ -17,8 +17,8 @@ function BlogForm({ onSubmit }) {
   }
 
   return (
-    <form onchange={handleSubmit}>
-      <lable> Title</lable>
+    <form onSubmit={handleSubmit}>
+      <label> Title</label>
       <input
       className="title"
         type="text"
@@ -26,7 +26,7 @@ function BlogForm({ onSubmit }) {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
-        <lable>Content</lable>
+        <label>Content</label>
       <textarea
       className="textrea"
         rows="6"
@@ -35,10 +35,8 @@ function BlogForm({ onSubmit }) {
         onChange={(e) => setBody(e.target.value)}
       />
 
-      <button className="button-form" type="submit">
-        Add Post
-      </button>
-
+          <button className="button-form" type="submit"> add post 
+          </button>
     </form>
   );
 }

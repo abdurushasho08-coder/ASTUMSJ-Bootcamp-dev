@@ -32,16 +32,18 @@ function BlogDetail() {
       <div> Loading... </div>
     );
   }
-  function handleBookmark() {
-    const found = bookmarks.find((item) => item.id === mypost.id);
-    if (found) {
-      const updated = bookmarks.filter((item) => item.id !== mypost.id);
-      setBookmarks(updated);
-    } else {
-      setBookmarks([...bookmarks, mypost]);
-    }
-  }
+ 
 
+const found = bookmarks.find((item) => item.id === mypost.id);
+
+function handleBookmark() {
+  if (found) {
+    const updated = bookmarks.filter((item) => item.id !== mypost.id);
+    setBookmarks(updated);
+  } else {
+    setBookmarks([...bookmarks, mypost]);
+  }
+}
   return (
     <div className="container">
       <h1>{mypost.title}</h1>
@@ -56,12 +58,11 @@ function BlogDetail() {
         ))}
       </div>
     <div className="button-link">
-        <button className="btn">
-          <Link to="/"> back to home </Link>
-        </button>
+        
+          <Link className="btn" to="/"> back to home </Link>
 
-        <button onClick={handleBookmark} className="bookmark">
-          Bookmark
+        <button className="bookmark" onClick={handleBookmark} >
+           {found ? "Unbookmark" : "Bookmark"}
         </button>
     </div>
 

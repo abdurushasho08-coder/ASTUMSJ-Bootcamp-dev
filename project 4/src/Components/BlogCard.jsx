@@ -1,33 +1,23 @@
 import { Link } from "react-router-dom";
 
-
 function BlogCard({ post }) {
   return (
     <div className="card">
-
-      <h2>{post.title}</h2>
-
-      <p>
-        {post.body}
-      </p>
-
-      <div>
+        <div>
         {post.tags.map((tag) => (
-          <span
-            className="tag"
-            key={tag}
-          >
+          <span className="tag" key={tag}>
             {tag}
           </span>
         ))}
       </div>
-
+        <h2>{post.title}</h2>
+        <p>{post.body}</p>
       <br />
-
-      <Link to={`/blog/${post.id}`}>
-        Read More
-      </Link>
-
+      <div>
+        <Link to={`/blog/${post.id}`}>
+          <button> Read More</button>
+        </Link>
+      </div>
     </div>
   );
 }

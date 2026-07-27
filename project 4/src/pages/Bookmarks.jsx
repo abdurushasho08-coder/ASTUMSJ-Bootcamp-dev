@@ -14,7 +14,7 @@ function Bookmarks() {
           <h3 className="header">No bookmarks yet</h3>
         ) : (
           bookmarks.map((post) => (
-            <BlogCard key={post.id} post={post} />
+            <BlogCard className="aaa" key={post.id} post={post} />
           ))
         )}
       </div>
